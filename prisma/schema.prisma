@@ -35,30 +35,8 @@ model User {
   password String
   email String
   userType USERTYPE
-  registrationDate DateTime
-  admin Admin?
-  buyer Buyer?
-  sellet Seller?
+  registrationDate DateTime?
   products Product[]
-}
-
-model Admin {
-  id Int @id @default(autoincrement())
-  user User @relation(fields: [userId], references: [id])
-  userId Int @unique
-
-}
-
-model Buyer {
-  id Int @id @default(autoincrement())
-  user User @relation(fields: [userId], references: [id])
-  userId Int @unique
-}
-
-model Seller {
-  id Int @id @default(autoincrement())
-  user User @relation(fields: [userId], references: [id])
-  userId Int @unique
 }
 
 model Product {
